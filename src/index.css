@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #f4f4f5;
+  --color-accent-soft: rgb(255 255 255 / 0.07);
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-zinc-950 text-zinc-100 font-sans antialiased;
+}
+
+/* Light Theme Variables and Palette */
+html.light {
+  color-scheme: light;
+  --color-zinc-950: #f8fafc;
+  --color-zinc-900: #ffffff;
+  --color-zinc-850: #f1f5f9;
+  --color-zinc-800: #e2e8f0;
+  --color-zinc-700: #cbd5e1;
+  --color-zinc-600: #94a3b8;
+  --color-zinc-500: #64748b;
+  --color-zinc-400: #475569;
+  --color-zinc-300: #334155;
+  --color-zinc-200: #1e293b;
+  --color-zinc-100: #0f172a;
+  --color-zinc-50: #020617;
+  --color-accent: #0f172a;
+  --color-accent-soft: rgba(15, 23, 42, 0.06);
+}
+
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html.light .bg-zinc-950\/95,
+html.light .bg-zinc-950\/90 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+html.light aside .shadow-2xl {
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light .hover\:bg-white:hover {
+  background-color: #1e293b !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: #020617 !important;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #f4f4f5 var(--fill, 0%), rgb(63 63 70) var(--fill, 0%));
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #f4f4f5;
+  transition: transform .12s;
+}
+input[type="range"]:hover::-webkit-slider-thumb { transform: scale(1.25); }
+input[type="range"]::-moz-range-thumb {
+  width: 12px; height: 12px; border: 0; border-radius: 50%; background: #f4f4f5;
+}
+
+html.light input[type="range"] {
+  background: linear-gradient(to right, #0f172a var(--fill, 0%), #cbd5e1 var(--fill, 0%));
+}
+html.light input[type="range"]::-webkit-slider-thumb {
+  background: #0f172a;
+}
+html.light input[type="range"]::-moz-range-thumb {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgb(63 63 70); border-radius: 99px; }
+
+html.light .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+/* Maintain dark background and contrast for internal video viewport controls */
+html.light #player {
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+  border-color: #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+}
+
+html.light #player input[type="range"] {
+  background: linear-gradient(to right, #f4f4f5 var(--fill, 0%), rgb(63 63 70) var(--fill, 0%));
+}
+html.light #player input[type="range"]::-webkit-slider-thumb {
+  background: #f4f4f5;
+}
+html.light #player input[type="range"]::-moz-range-thumb {
+  background: #f4f4f5;
+}
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.animate-fade-up { animation: fade-up .2s ease-out both; }
